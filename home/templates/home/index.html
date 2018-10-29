@@ -1,74 +1,137 @@
 ﻿{% load static %}
-<!doctype html>
-<html> 
-<head> 
-	<meta charset="utf-8" />
-	<title>Technical works</title>
-	<link href="{% static 'home/css/style.css' %}" rel="stylesheet"/>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-</head>
-<body>
-	<div id="level">
-		<div id="content">
-			<div id="gears">
-				<div id="gears-static"></div>
-				<div id="gear-system-1">
-					<div id="gear15"></div>
-					<div id="gear14"></div>
-					<div id="gear13"></div>
-				</div>
-				<div id="gear-system-2">
-					<div id="gear10"></div>
-					<div id="gear3"></div>
-				</div>
-				<div id="gear-system-3">
-					<div id="gear9"></div>
-					<div id="gear7"></div>
-				</div>
-				<div id="gear-system-4">
-					<div id="gear6"></div>
-					<div id="gear4"></div>
-				</div>
-				<div id="gear-system-5">
-					<div id="gear12"></div>
-					<div id="gear11"></div>
-					<div id="gear8"></div>
-				</div>
-				<div id="gear1"></div>
-				<div id="gear-system-6">
-					<div id="gear5"></div>
-					<div id="gear2"></div>
-				</div>
-				<div id="chain-circle"></div>
-				<div id="chain"></div>
-				<div id="weight"></div>
-			</div>
-			<div id="title">
-				<h1>Добро пожаловать на сайт Chechen IT Community</h1>
-				<p>На данный момент сайт находится на стадии разработки</p>
-			</div>
-		</div>
-	</div>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!DOCTYPE html>
+<html lang="en">
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <head>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-</body>
-</html>
+    <title>Главная страница</title>
 
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'home/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
+    <!-- Custom styles for this template -->
+    <link href="{% static 'home/css/small-business.css' %}" rel="stylesheet">
 
-<!doctype html>
-<html> 
-<head> 
-	<meta charset="utf-8" />
-	<title>Technical works</title>
-	<link href="style.css" rel="stylesheet"/>
-</head> 
-<body>
+  </head>
 
-</body>
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">CHITCOM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Главная страница
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">О нас</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Сервис</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Контакты</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Heading Row -->
+      <div class="row my-4">
+        <div class="col-lg-8">
+          <img class="img-fluid rounded" src="{% static 'home/images/banner.png' %}" alt="">
+        </div>
+        <!-- /.col-lg-8 -->
+        <div class="col-lg-4">
+          <h1>Chechen IT Community</h1>
+          <p>Площадка для IT-специалистов Чеченской Республики. Давайте вместе развивать IT-сферу нашей Республики. Вступайте в наше сообщество.</p>
+          <a class="btn btn-primary btn-lg" href="#">Вступить</a>
+        </div>
+        <!-- /.col-md-4 -->
+      </div>
+      <!-- /.row -->
+
+      <!-- Call to Action Well -->
+      <div class="card text-white bg-secondary my-4 text-center">
+        <div class="card-body">
+          <p class="text-white m-0">Сайт находится на стадии разработки!</p>
+        </div>
+      </div>
+
+      <!-- Content Row -->
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h2 class="card-title">Веб-приложения</h2>
+              <p class="card-text">Здесь собраны материалы по веб-разработке</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Подробнее</a>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-md-4 -->
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h2 class="card-title">Мобильные приложения</h2>
+              <p class="card-text">Здесь собраны материалы по разработке мобильных приложений</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Подробнее</a>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-md-4 -->
+        <div class="col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <h2 class="card-title">Нейронные сети</h2>
+              <p class="card-text">Здесь собраны материалы по нейронным сетям</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Подробнее</a>
+            </div>
+          </div>
+        </div>
+        <!-- /.col-md-4 -->
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Chechen IT Community 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'home/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'home/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  </body>
+
 </html>
