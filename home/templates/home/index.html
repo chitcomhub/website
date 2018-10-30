@@ -1,137 +1,75 @@
-﻿{% load static %}
+﻿{% extends 'home/base.html' %}
+{% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block content %}
 
-  <head>
+<!-- Page Content -->
+<div class="container">
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Главная страница</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'home/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="{% static 'home/css/small-business.css' %}" rel="stylesheet">
-
-  </head>
-
-  <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">CHITCOM</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Главная страница
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">О нас</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Сервис</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Контакты</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Page Content -->
-    <div class="container">
-
-      <!-- Heading Row -->
-      <div class="row my-4">
-        <div class="col-lg-8">
-          <img class="img-fluid rounded" src="{% static 'home/images/banner.png' %}" alt="">
-        </div>
-        <!-- /.col-lg-8 -->
-        <div class="col-lg-4">
-          <h1>Chechen IT Community</h1>
-          <p>Площадка для IT-специалистов Чеченской Республики. Давайте вместе развивать IT-сферу нашей Республики. Вступайте в наше сообщество.</p>
-          <a class="btn btn-primary btn-lg" href="#">Вступить</a>
-        </div>
-        <!-- /.col-md-4 -->
-      </div>
-      <!-- /.row -->
-
-      <!-- Call to Action Well -->
-      <div class="card text-white bg-secondary my-4 text-center">
-        <div class="card-body">
-          <p class="text-white m-0">Сайт находится на стадии разработки!</p>
-        </div>
-      </div>
-
-      <!-- Content Row -->
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h2 class="card-title">Веб-приложения</h2>
-              <p class="card-text">Здесь собраны материалы по веб-разработке</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Подробнее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-md-4 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h2 class="card-title">Мобильные приложения</h2>
-              <p class="card-text">Здесь собраны материалы по разработке мобильных приложений</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Подробнее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-md-4 -->
-        <div class="col-md-4 mb-4">
-          <div class="card h-100">
-            <div class="card-body">
-              <h2 class="card-title">Нейронные сети</h2>
-              <p class="card-text">Здесь собраны материалы по нейронным сетям</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Подробнее</a>
-            </div>
-          </div>
-        </div>
-        <!-- /.col-md-4 -->
-
-      </div>
-      <!-- /.row -->
-
+  <!-- Heading Row -->
+  <div class="row my-4">
+    <div class="col-lg-8">
+      <img class="img-fluid rounded" src="{% static 'home/images/banner.png' %}" alt="">
     </div>
-    <!-- /.container -->
+    <!-- /.col-lg-8 -->
+    <div class="col-lg-4">
+      <h1>Chechen IT Community</h1>
+      <p>Площадка для IT-специалистов Чеченской Республики. Давайте вместе развивать IT-сферу нашей Республики. Вступайте в наше сообщество.</p>
+      <a class="btn btn-primary btn-lg" href="{% url 'chiters:register' %}">Вступить</a>
+    </div>
+    <!-- /.col-md-4 -->
+  </div>
+  <!-- /.row -->
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Chechen IT Community 2018</p>
+  <!-- Call to Action Well -->
+  <div class="card text-white bg-secondary my-4 text-center">
+    <div class="card-body">
+      <p class="text-white m-0">Сайт находится на стадии разработки!</p>
+    </div>
+  </div>
+
+  <!-- Content Row -->
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">Веб-приложения</h2>
+          <p class="card-text">Здесь собраны материалы по веб-разработке</p>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-primary">Подробнее</a>
+        </div>
       </div>
-      <!-- /.container -->
-    </footer>
+    </div>
+    <!-- /.col-md-4 -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">Мобильные приложения</h2>
+          <p class="card-text">Здесь собраны материалы по разработке мобильных приложений</p>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-primary">Подробнее</a>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-md-4 -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title">Нейронные сети</h2>
+          <p class="card-text">Здесь собраны материалы по нейронным сетям</p>
+        </div>
+        <div class="card-footer">
+          <a href="#" class="btn btn-primary">Подробнее</a>
+        </div>
+      </div>
+    </div>
+    <!-- /.col-md-4 -->
+  </div>
+  <!-- /.row -->
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="{% static 'home/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'home/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</div>
+<!-- /.container -->
 
-  </body>
-
-</html>
+{% endblock %}
