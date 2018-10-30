@@ -1,0 +1,26 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+<h5><b>Заполните форму, чтобы вступить в CHITCOM</b></h5>
+<form method="POST" class="post-form">{% csrf_token %}
+  <div class="form-group">
+    <label for="name">Ваше имя:</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="введите имя на русском языке">
+  </div>
+  <div class="form-group">
+    <label for="nickname">Никнейм в телеграме:</label>
+    <input type="text" class="form-control" id="nickname" name="nickname" placeholder="например: mytelegramname">
+  </div>
+  <div class="form-group">
+    <label for="direction">ИТ-направление:</label>
+    <input type="text" class="form-control" id="direction" name="direction" placeholder="например: веб-разработчик, разработчик мобильных приложений, верстальщик, дизайнер, SQL-разработчик, системный администратор">
+  </div>
+  <div class="form-group">
+    <label for="technology">Скиллы:</label>
+    <input type="text" class="form-control" id="technology" name="technology" placeholder="например: Java, PHP, Ruby, Photoshop, Angular, C++, Bootstrap, Paint">
+  </div>
+  <button type="submit" class="save btn btn-primary">Вступить</button>
+</form>
+
+{% endblock %}
