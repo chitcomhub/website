@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Главная страница</title>
+  <title>CHITCOM</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{% static 'home/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -34,13 +34,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">О нас</a>
+            <a class="nav-link" href="{% url 'chiters:chiters' %}">Читеры</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Сервис</a>
+            <a class="nav-link" href="{% url 'home:about' %}">О нас</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Контакты</a>
+            <a class="nav-link" href="{% url 'home:contact' %}">Контакты</a>
           </li>
         </ul>
       </div>
