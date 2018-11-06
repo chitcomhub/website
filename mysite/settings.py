@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'news.apps.NewsConfig',
     'home.apps.HomeConfig',
     'chiters.apps.ChitersConfig',
     'django.contrib.admin',
