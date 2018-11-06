@@ -1,3 +1,15 @@
+{% extends 'home/base.html' %}
 
+{% block content %}
 
-<h1>Здесь будут новости</h1>
+<div class="col-md-6">
+	<h1>IT-новости</h1>
+	{% for post in post_list %}
+		<h3>{{ post.title }}</h3>
+		<p>{{ post.context }}</p>
+		<p>Дата публикации: <i>{{ post.datetime }}</i></p>
+		<br>
+	{% endfor %}
+</div>
+
+{% endblock %}	
