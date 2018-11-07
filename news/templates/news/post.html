@@ -1,0 +1,12 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+
+<h1>{{ post.title }}</h1>
+{% if post.pic %}
+	<img src="/news{{ MEDIA_URL }}{{ post.pic.url }}">
+{% endif %}
+<p>{{ post.context }}</p>
+<p>Дата публикации: <i>{{ post.datetime }}</i></p>
+
+{% endblock %}
