@@ -1,11 +1,16 @@
 from django.shortcuts import get_object_or_404, render
+from django.views import generic
 
 from .models import Post
 
-def index(request):
-	post_list = Post.objects.order_by('-datetime')
-	return render(request, 'news/index.html', {'post_list': post_list})
+class IndexView(generic.ListView):
+	model = Post
+	template_name = 'news/index.html'
 
-def post(request, post_id):
-	post = get_object_or_404(Post, pk=post_id)
-	return render(request, 'news/post.html', {'post': post})
+	def get_queryset(self):
+		return Post.objects.order_by('-datetime')
+
+
+class PostView(generic.DetailView):
+	model = Post
+	template_name = 'news/post.html'
