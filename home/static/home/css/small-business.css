@@ -8,6 +8,14 @@ body {
   padding-top: 54px;
 }
 
+footer {
+    background: #343a40;
+    padding: 40px;
+}
+footer a {
+    color: #f8f9fa!important
+}
+
 @media (min-width: 992px) {
   body {
     padding-top: 56px;

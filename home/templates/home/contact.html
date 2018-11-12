@@ -3,6 +3,56 @@
 
 {% block content %}
 
-<h1>Контакты</h1>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home:index' %}">Главная</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Контакты</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header bg-primary text-white"><i class="fa fa-envelope"></i> Форма отправки временно недоступна<!-- Наши контакты -->
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Имя</label>
+                            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Введите имя" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email адрес</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Введите email" required>
+                            <small id="emailHelp" class="form-text text-muted">Ваша почта будет скрыта от посторонних</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Сообщение</label>
+                            <textarea class="form-control" id="message" rows="6" required></textarea>
+                        </div>
+                        <div class="mx-auto">
+                        <button type="submit" class="btn btn-primary text-right">Отправить</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-4">
+            <div class="card bg-light mb-3">
+                <div class="card-header bg-success text-white text-uppercase"><i class="fa fa-home"></i>Адрес</div>
+                <div class="card-body">
+                    <p>CHITCOM</p>
+                    <p>Чеченская Республика</p>
+                    <p>Почта: chitcomhub@mail.ru</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
