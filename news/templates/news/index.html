@@ -1,15 +1,31 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
+	<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home:index' %}">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Новости</li>
+        </ol>
+    </nav>
 
-<div class="col-md-6">
-	<h1>IT-новости</h1>
 	{% for post in post_list %}
-		<h3><a href="{% url 'news:post' post.id %}">{{ post.title }}</a></h3>
-		<p>{{ post.context }}</p>
-		<p>Дата публикации: <i>{{ post.datetime }}</i></p>
-		<br>
+	<div class="col-md-6">
+		<div class="card-deck">
+		  <div class="card">
+		    <img class="card-img-top" src="/news{{ post.pic.url }}" alt="Card image cap">
+		    <div class="card-body">
+		      <h5 class="card-title"><a href="{% url 'news:post' post.id %}">{{ post.title }}</a></h5>
+		      <p class="card-text">{{ post.context }}</p>
+		    </div>
+		    <div class="card-footer">
+	    	  	<div class="article-metadata">
+					<a class="mr-2" href="#">{{ post.author }}</a>
+					<small class="text-muted">{{ post.datetime|date:"F d, Y" }}</small>
+				</div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	<br>
 	{% endfor %}
-</div>
-
 {% endblock %}	
