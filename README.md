@@ -11,10 +11,15 @@
 2. Перейти в папку website
 
 3. Запустить команду с терминала:
-    pip install -r requirements.txt
+   pip install -r requirements.txt
 
 4. Развернуть БД:
-    python manage.py migrate
+   python manage.py migrate
+    
+5. Настроить переменные окружения через терминал:
+   export SECRET_KEY=вашсекретныйключ
+   export DEBUG_MODE=True
+    
     
 5. Запустить приложение:
-    python manage.py runserver
+   python manage.py runserver
