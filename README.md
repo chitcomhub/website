@@ -17,9 +17,10 @@
    python manage.py migrate
     
 5. Настроить переменные окружения через терминал:
-   export SECRET_KEY=вашсекретныйключ
+```
+   export SECRET_KEY=вашсекретныйключ<br/>
    export DEBUG_MODE=True
+```    
     
-    
-5. Запустить приложение:
+6. Запустить приложение:
    python manage.py runserver
