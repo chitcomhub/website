@@ -1,12 +1,23 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home:index' %}">Главная</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'news:index' %}">Новости</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ post.title }}</li>
+    </ol>
+</nav>
 
-<h1>{{ post.title }}</h1>
-{% if post.pic %}
-	<img src="/news{{ MEDIA_URL }}{{ post.pic.url }}">
-{% endif %}
-<p>{{ post.context }}</p>
-<p>Дата публикации: <i>{{ post.datetime }}</i></p>
-
+<div class="card mb-3">
+  <img class="card-img-top" src="/news{{ post.pic.url }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ post.title }}</h5>
+    <p class="card-text">{{ post.context }}</p>
+  	<div class="article-metadata">
+		<a class="mr-2" href="#">{{ post.author }}</a>
+		<small class="text-muted">{{ post.datetime|date:"F d, Y" }}</small>
+	</div>
+  </div>
+</div>
 {% endblock %}
