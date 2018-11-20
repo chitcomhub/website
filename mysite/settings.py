@@ -11,6 +11,16 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from django.core.exceptions import ImproperlyConfigured
+
+# Get the environment variable from an OS Environment
+def get_env_variable(var_name):
+    """Get the environment variable or return  exception."""
+    try:
+        return os.environ[var_name]
+    except KeyError:
+        error_msg = f'Set the {var_name} environment variable'
+        raise ImproperlyConfigured(error_msg)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,12 +29,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
-# Секретный ключ я храню на локальном компьютере в целях безопасности проекта
-with open('/etc/secret_key.txt') as f:
-    SECRET_KEY = f.read().strip()
+# Set a secret key using environment variables
+SECRET_KEY = get_env_variable('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = get_env_variable('DEBUG_MODE')
 
 ALLOWED_HOSTS = []
 
