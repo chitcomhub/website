@@ -10,7 +10,9 @@
 </nav>
 
 <div class="card mb-3">
+  {% if post.pic %}
   <img class="card-img-top" src="/news{{ post.pic.url }}" alt="Card image cap">
+  {% endif %}
   <div class="card-body">
     <h5 class="card-title">{{ post.title }}</h5>
     <p class="card-text">{{ post.context }}</p>

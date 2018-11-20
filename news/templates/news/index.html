@@ -12,7 +12,9 @@
 	<div class="col-md-6">
 		<div class="card-deck">
 		  <div class="card">
-		    <img class="card-img-top" src="/news{{ post.pic.url }}" alt="Card image cap">
+		  	{% if post.pic %}
+		    <a href="{% url 'news:post' post.id %}"><img class="card-img-top" src="/news{{ post.pic.url }}" alt="Card image cap"></a>
+		    {% endif %}
 		    <div class="card-body">
 		      <h5 class="card-title"><a href="{% url 'news:post' post.id %}">{{ post.title }}</a></h5>
 		      <p class="card-text">{{ post.context }}</p>
