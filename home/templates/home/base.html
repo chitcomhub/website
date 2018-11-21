@@ -26,14 +26,11 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home:index' %}">Главная страница
+            <a class="nav-link" href="{% url 'news:index' %}">Новости
               <span class="sr-only">(current)</span>
             </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'news:index' %}">Новости</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'chiters:chiters' %}">Читеры</a>
@@ -44,7 +41,12 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'home:contact' %}">Контакты</a>
           </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
         {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-item nav-link" href="{% url 'news:post-create' %}">Новый пост</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'profile' %}">Профиль</a>
           </li>
@@ -64,6 +66,7 @@
     </div>
   </nav>  
   <br>
+
   <div class="container">
     <div class="row">
       <div class="col">
@@ -76,6 +79,7 @@
       {% endif %}
       {% block content %}
       {% endblock %}
+      <br>
       </div>
     </div>
   </div>

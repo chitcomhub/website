@@ -6,3 +6,4 @@ db.sqlite3
 .DB_Store
 .coverage
 local_coverage_report
+/media
