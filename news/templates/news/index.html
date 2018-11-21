@@ -8,27 +8,31 @@
         </ol>
     </nav>
 
-	{% for post in post_list %}
-	<div class="col-md-6">
-		<div class="card-deck">
-		  <div class="card">
-		  	{% if post.pic %}
-		    <a href="{% url 'news:post' post.id %}"><img class="card-img-top" src="/news{{ post.pic.url }}" alt="Card image cap"></a>
-		    {% endif %}
-		    <div class="card-body">
-		      <h5 class="card-title"><a href="{% url 'news:post' post.id %}">{{ post.title }}</a></h5>
-		      <p class="card-text">{{ post.context }}</p>
-		    </div>
-		    <div class="card-footer">
-	    	  	<div class="article-metadata">
-	    	  		<img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
-					<a class="mr-2" href="#">{{ post.author }}</a>
-					<small class="text-muted">{{ post.datetime|date:"F d, Y" }}</small>
+    <div class="container">
+    	<div class="row justify-content-md-center">
+    		<div class="col-md-8">
+    			{% for post in posts %}
+				<div class="card-deck">
+				  <div class="card">
+				  	{% if post.pic %}
+				    <a href="{% url 'news:post-detail' post.id %}"><img class="card-img-top" src="/news{{ post.pic.url }}" alt="Card image cap"></a>
+				    {% endif %}
+				    <div class="card-body">
+				      <h5 class="card-title"><a href="{% url 'news:post-detail' post.id %}">{{ post.title }}</a></h5>
+				      <p class="card-text">{{ post.context }}</p>
+				    </div>
+				    <div class="card-footer">
+			    	  	<div class="article-metadata">
+			    	  		<img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+							<a class="mr-2" href="#">{{ post.author }}</a>
+							<small class="text-muted">{{ post.datetime|date:"F d, Y" }}</small>
+						</div>
+				    </div>
+				  </div>
 				</div>
-		    </div>
-		  </div>
-		</div>
-	</div>
-	<br>
-	{% endfor %}
+				<br>
+				{% endfor %}
+    		</div>
+    	</div>
+    </div>
 {% endblock %}	
