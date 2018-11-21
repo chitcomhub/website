@@ -1,7 +1,7 @@
 from django.test import TestCase
-from .views import index
 
-# Create your tests here.
+
+
 class HomePageTest(TestCase):
 
     def test_uses_index_template(self):
