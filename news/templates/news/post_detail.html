@@ -5,7 +5,7 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{% url 'home:index' %}">Главная</a></li>
         <li class="breadcrumb-item"><a href="{% url 'news:index' %}">Новости</a></li>
-        <li class="breadcrumb-item active" aria-current="page">{{ post.title }}</li>
+        <li class="breadcrumb-item active" aria-current="page">{{ object.title }}</li>
     </ol>
 </nav>
 
@@ -13,8 +13,8 @@
   <div class="row justify-content-md-center">
     <div class="col-md-10"">
       <div class="card mb-3">
-        {% if post.pic %}
-        <img class="card-img-top" src="/news{{ post.pic.url }}" alt="Card image cap">
+        {% if object.pic %}
+        <img class="card-img-top" src="/news{{ object.pic.url }}" alt="Card image cap">
         {% endif %}
         <div class="card-body">
           {% if object.author == user %}
@@ -23,13 +23,13 @@
               <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'news:post-delete' object.id %}">Удалить</a>
             </div>
           {% endif %}
-          <h5 class="card-title">{{ post.title }}</h5>
-          <p class="card-text">{{ post.context }}</p>
+          <h5 class="card-title">{{ object.title }}</h5>
+          <p class="card-text">{{ object.context }}</p>
           <div class="card-footer">
             <div class="article-metadata">
-              <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
-              <a class="mr-2" href="#">{{ post.author }}</a>
-              <small class="text-muted">{{ post.datetime|date:"F d, Y" }}</small>
+              <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+              <a class="mr-2" href="{% url 'news:user-posts' object.author.username %}">{{ object.author }}</a>
+              <small class="text-muted">{{ object.datetime|date:"F d, Y" }}</small>
             </div>
           </div>
         </div>
