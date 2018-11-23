@@ -14,6 +14,7 @@ class PostListView(ListView):
 	template_name = 'news/index.html'
 	context_object_name = 'posts'
 	ordering = ['-datetime']
+	paginate_by = 5
 
 # Здесь был Азамат
 class PostDetailView(DetailView):
