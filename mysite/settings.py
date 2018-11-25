@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'users.apps.UsersConfig',
     'news.apps.NewsConfig',
+    'paperchit.apps.PaperchitConfig',
     'home.apps.HomeConfig',
     'chiters.apps.ChitersConfig',
     'django.contrib.admin',
