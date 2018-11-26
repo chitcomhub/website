@@ -1,0 +1,60 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+	<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home:index' %}">Главная</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Новости</li>
+        </ol>
+    </nav>
+
+    <div class="container">
+    	<div class="row justify-content-md-center">
+    		<div class="col-md-8">
+    			{% for post in posts %}
+				<div class="card-deck">
+				  <div class="card">
+				  	{% if post.pic %}
+				    <a href="{% url 'paperchit:post-detail' post.id %}"><img class="card-img-top" src="/paperchit{{ post.pic.url }}" alt="Card image cap"></a>
+				    {% endif %}
+				    <div class="card-body">
+				      <h5 class="card-title"><a href="{% url 'paperchit:post-detail' post.id %}">{{ post.title }}</a></h5>
+				      <p class="card-text">{{ post.content }}</p>
+				    </div>
+				    <div class="card-footer">
+			    	  	<div class="article-metadata">
+			    	  		<img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+							<a class="mr-2" href="{% url 'paperchit:user-posts' post.author.username %}">{{ post.author }}</a>
+							<small class="text-muted">{{ post.datetime|date:"F d, Y" }}</small>
+						</div>
+				    </div>
+				  </div>
+				</div>
+				<br>
+				{% endfor %}
+
+				{% if is_paginated %}
+
+					{% if page_obj.has_previous %}
+						<a class="btn btn-outline-info mb-4" href="?page=1">Первый</a>
+						<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Предыдущий</a>
+					{% endif %}
+
+					{% for num in page_obj.paginator.page_range %}
+						{% if page_obj.number == num %}
+							<a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+						{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+							<a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+						{% endif %}
+					{% endfor %}
+
+					{% if page_obj.has_next %}
+						<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Следующий</a>
+						<a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Последний</a>
+					{% endif %}
+
+				{% endif %}
+    		</div>
+    	</div>
+    </div>
+{% endblock %}	
