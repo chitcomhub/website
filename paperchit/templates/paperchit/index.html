@@ -11,21 +11,21 @@
     <div class="container">
     	<div class="row justify-content-md-center">
     		<div class="col-md-8">
-    			{% for post in posts %}
+    			{% for article in articles %}
 				<div class="card-deck">
 				  <div class="card">
-				  	{% if post.pic %}
-				    <a href="{% url 'paperchit:post-detail' post.id %}"><img class="card-img-top" src="/paperchit{{ post.pic.url }}" alt="Card image cap"></a>
+				  	{% if article.pic %}
+				    <a href="{% url 'paperchit:article-detail' article.id %}"><img class="card-img-top" src="/paperchit{{ article.pic.url }}" alt="Card image cap"></a>
 				    {% endif %}
 				    <div class="card-body">
-				      <h5 class="card-title"><a href="{% url 'paperchit:post-detail' post.id %}">{{ post.title }}</a></h5>
-				      <p class="card-text">{{ post.content }}</p>
+				      <h5 class="card-title"><a href="{% url 'paperchit:article-detail' article.id %}">{{ article.title }}</a></h5>
+				      <p class="card-text">{{ article.content }}</p>
 				    </div>
 				    <div class="card-footer">
 			    	  	<div class="article-metadata">
-			    	  		<img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
-							<a class="mr-2" href="{% url 'paperchit:user-posts' post.author.username %}">{{ post.author }}</a>
-							<small class="text-muted">{{ post.datetime|date:"F d, Y" }}</small>
+			    	  		<img class="rounded-circle article-img" src="{{ article.author.profile.image.url }}">
+							<a class="mr-2" href="{% url 'paperchit:user-articles' article.author.username %}">{{ article.author }}</a>
+							<small class="text-muted">{{ article.datetime|date:"F d, Y" }}</small>
 						</div>
 				    </div>
 				  </div>

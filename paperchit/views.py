@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from .models import Article
 
-def index(request):
-	return render(request, 'paperchit/index.html')
+def ArticleListView(ListView):
+	model = Article
+	template_name = 'paperchit/index.html'
+	context_object_name = 'articles'
+	ordering = ['-datetime']
