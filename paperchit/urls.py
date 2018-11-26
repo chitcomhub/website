@@ -1,7 +1,7 @@
-from django.urls import path, include
-from . import views
+from django.urls import path
+from .views import ArticleListView
 
 app_name = 'paperchit'
 urlpatterns = [
-	path('', views.index, name='index'),
+	path('', ArticleListView.as_view(), name='index'),
 ]
