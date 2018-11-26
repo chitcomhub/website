@@ -5,7 +5,7 @@ from django.urls import reverse
 
 class Post(models.Model):
 	title = models.CharField('Заголовок', max_length=200)
-	context = models.TextField('Описание')
+	content = models.TextField('Описание')
 	datetime = models.DateTimeField('Дата публикации', default=timezone.now)
 	pic = models.ImageField(null=True, blank=True, upload_to='images/', verbose_name='Изображение', help_text='Ширина и высота 800x400px')
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
