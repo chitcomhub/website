@@ -54,3 +54,16 @@ class ChitersTest(TestCase):
 
             ("Alucard", "SonOfDracula", "Vampire", "Teeth")
         )
+
+
+    def test_can_save_a_POST_request(self):
+        response = self.client.post('/chiters/register/', data={
+            'name':'Lom-Ali', 'nickname':'Leon-Ali', 'direction':'Backend', 'technology':'Python'
+        })
+
+        self.assertEqual(Chiter.objects.count(), 1)
+        new_chiter = Chiter.objects.first()
+        self.assertEqual(new_chiter.name, 'Lom-Ali')
+
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response['location'], '/chiters/message')
