@@ -15,16 +15,16 @@
 				<div class="card-deck">
 				  <div class="card">
 				  	{% if article.pic %}
-				    <a href="{% url 'paperchit:article-detail' article.id %}"><img class="card-img-top" src="/paperchit{{ article.pic.url }}" alt="Card image cap"></a>
+				    <a href=""><img class="card-img-top" src="/paperchit{{ article.pic.url }}" alt="Card image cap"></a>
 				    {% endif %}
 				    <div class="card-body">
-				      <h5 class="card-title"><a href="{% url 'paperchit:article-detail' article.id %}">{{ article.title }}</a></h5>
+				      <h5 class="card-title"><a href="{% url 'paperchit:article_detail' article.id %}">{{ article.title }}</a></h5>
 				      <p class="card-text">{{ article.content }}</p>
 				    </div>
 				    <div class="card-footer">
 			    	  	<div class="article-metadata">
 			    	  		<img class="rounded-circle article-img" src="{{ article.author.profile.image.url }}">
-							<a class="mr-2" href="{% url 'paperchit:user-articles' article.author.username %}">{{ article.author }}</a>
+							<a class="mr-2" href="">{{ article.author }}</a>
 							<small class="text-muted">{{ article.datetime|date:"F d, Y" }}</small>
 						</div>
 				    </div>

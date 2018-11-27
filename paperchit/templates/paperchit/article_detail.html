@@ -1,0 +1,40 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'home:index' %}">Главная</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'news:index' %}">Новости</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ object.title }}</li>
+    </ol>
+</nav>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-10"">
+      <div class="card mb-3">
+        {% if object.pic %}
+        <img class="card-img-top" src="/paperchit{{ object.pic.url }}" alt="Card image cap">
+        {% endif %}
+        <div class="card-body">
+          {% if object.author == user %}
+            <div>
+              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="">Обновить</a>
+              <a class="btn btn-danger btn-sm mt-1 mb-1" href="">Удалить</a>
+            </div>
+          {% endif %}
+          <h5 class="card-title">{{ object.title }}</h5>
+          <p class="card-text">{{ object.content }}</p>
+          <div class="card-footer">
+            <div class="article-metadata">
+              <img class="rounded-circle article-img" src="{{ object.author.profile.image.url }}">
+              <a class="mr-2" href="">{{ object.author }}</a>
+              <small class="text-muted">{{ object.datetime|date:"F d, Y" }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
