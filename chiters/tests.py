@@ -1,5 +1,8 @@
 from django.test import TestCase
 from .models import Chiter
+from rest_framework import status
+from rest_framework.test import APIClient
+from django.urls import reverse
 
 
 class ChitersTest(TestCase):
@@ -67,3 +70,42 @@ class ChitersTest(TestCase):
 
         self.assertEqual(response.status_code, 302)
         self.assertEqual(response['location'], '/chiters/message')
+
+
+class ChiterApiTest(TestCase):
+
+    def setUp(self):
+        self.client =APIClient()
+        self.chiter_data = {
+            'name':'Aang', 'nickname':'Airbender', 'direction':'Avatar', 'technology':'magic'
+        }
+        self.response = self.client.post(
+            reverse('chiters:chiters_list'),
+            self.chiter_data,
+            format="json"
+        )
+
+
+    def test_api_can_get_chiters(self):
+        chiters = Chiter.objects.all()
+        response = self.client.get(
+            reverse('chiters:chiters_list')
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+
+    def test_api_can_create_a_chiter(self):
+        self.assertEqual(self.response.status_code, status.HTTP_201_CREATED )
+
+
+    def test_api_can_get_a_chiter(self):
+        chiter = Chiter.objects.get()
+        response = self.client.get(
+            reverse('chiters:chiters_detail',
+            kwargs={'pk':chiter.id}), format="json")
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertContains(response, chiter)
+
+
+

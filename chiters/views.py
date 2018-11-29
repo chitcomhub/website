@@ -1,5 +1,7 @@
 from django.shortcuts import redirect, render
 from .forms import PostForm
+from .serializers import ChiterSerializer
+from rest_framework import generics
 
 from .models import Chiter
 
@@ -21,3 +23,14 @@ def register(request):
 
 def message(request):
 	return render(request, 'chiters/message.html')
+
+
+#API Views
+class ChitersList(generics.ListCreateAPIView):
+	queryset = Chiter.objects.all()
+	serializer_class = ChiterSerializer
+
+
+class ChitersDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = Chiter.objects.all()
+	serializer_class = ChiterSerializer
