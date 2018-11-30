@@ -19,10 +19,18 @@ from django.urls import include, path
 from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
+from rest_framework.schemas import get_schema_view
+from rest_framework_swagger.renderers import SwaggerUIRenderer, OpenAPIRenderer
+from chiters.views import ChitersList, ChitersDetail
+
+
+schema_view = get_schema_view(
+    title='Chitcom API', renderer_classes=[OpenAPIRenderer, SwaggerUIRenderer]
+)
 
 urlpatterns = [
     path('', include('home.urls')),
-    path('api/', include('chiters.urls')),
+    path('docs/', schema_view, name='docs'),
     path('news/', include('news.urls')),
 	path('paperchit/', include('paperchit.urls')),
     path('chiters/', include('chiters.urls')),
@@ -32,6 +40,14 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
 ]
+
+
+api_urlpatterns = [
+    path('api/chiters/', ChitersList.as_view(), name='chiters_list'),
+    path('api/chiters/<int:pk>/', ChitersDetail.as_view(), name='chiters_detail'),
+]
+
+urlpatterns += api_urlpatterns
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

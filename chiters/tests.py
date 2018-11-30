@@ -80,16 +80,15 @@ class ChiterApiTest(TestCase):
             'name':'Aang', 'nickname':'Airbender', 'direction':'Avatar', 'technology':'magic'
         }
         self.response = self.client.post(
-            reverse('chiters:chiters_list'),
+            reverse('chiters_list'),
             self.chiter_data,
             format="json"
         )
 
 
     def test_api_can_get_chiters(self):
-        chiters = Chiter.objects.all()
         response = self.client.get(
-            reverse('chiters:chiters_list')
+            reverse('chiters_list')
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
@@ -101,7 +100,7 @@ class ChiterApiTest(TestCase):
     def test_api_can_get_a_chiter(self):
         chiter = Chiter.objects.get()
         response = self.client.get(
-            reverse('chiters:chiters_detail',
+            reverse('chiters_detail',
             kwargs={'pk':chiter.id}), format="json")
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
