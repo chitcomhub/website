@@ -11,6 +11,11 @@
     <div class="container">
     	<div class="row justify-content-md-center">
     		<div class="col-md-8">
+    			{% if user.is_authenticated %}
+    			<div>
+	              <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'paperchit:new-article' %}">Написать статью</a>
+	            </div>
+	            {% endif %}
     			{% for article in articles %}
 				<div class="card-deck">
 				  <div class="card">
