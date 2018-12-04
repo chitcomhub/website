@@ -22,6 +22,7 @@ from users import views as user_views
 from rest_framework.schemas import get_schema_view
 from rest_framework_swagger.renderers import SwaggerUIRenderer, OpenAPIRenderer
 from chiters.views import ChitersList, ChitersDetail
+from news.views import NewsList, NewsDetail
 
 
 schema_view = get_schema_view(
@@ -45,6 +46,8 @@ urlpatterns = [
 api_urlpatterns = [
     path('api/chiters/', ChitersList.as_view(), name='chiters_list'),
     path('api/chiters/<int:pk>/', ChitersDetail.as_view(), name='chiters_detail'),
+    path('api/news/', NewsList.as_view(), name='news'),
+    path('api/news/<int:pk>', NewsDetail.as_view(), name='news-detail'),
 ]
 
 urlpatterns += api_urlpatterns

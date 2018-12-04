@@ -9,6 +9,8 @@ from django.views.generic import (
 	DeleteView
 )
 from .models import Post
+from .serializers import PostSerializer
+from rest_framework import generics
 
 class PostListView(ListView):
 	model = Post
@@ -67,3 +69,19 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 		if self.request.user == post.author:
 			return True
 		return False
+
+
+
+#API Views
+class NewsList(generics.ListCreateAPIView):
+	queryset = Post.objects.all()
+	serializer_class = PostSerializer
+
+
+	def perform_create(self, serializer):
+		serializer.save(author=self.request.user)
+
+
+class NewsDetail(generics.RetrieveUpdateDestroyAPIView):
+	queryset = Post.objects.all()
+	serializer_class = PostSerializer

@@ -75,7 +75,7 @@ class ChitersTest(TestCase):
 class ChiterApiTest(TestCase):
 
     def setUp(self):
-        self.client =APIClient()
+        self.client = APIClient()
         self.chiter_data = {
             'name':'Aang', 'nickname':'Airbender', 'direction':'Avatar', 'technology':'magic'
         }
@@ -98,7 +98,7 @@ class ChiterApiTest(TestCase):
 
 
     def test_api_can_get_a_chiter(self):
-        chiter = Chiter.objects.get()
+        chiter = Chiter.objects.first()
         response = self.client.get(
             reverse('chiters_detail',
             kwargs={'pk':chiter.id}), format="json")
