@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class Article(models.Model):
 	title = models.CharField('Заголовок', max_length=200)
@@ -11,3 +12,6 @@ class Article(models.Model):
 
 	def __str__(self):
 		return self.title
+
+	def get_absolute_url(self):
+		return reverse('paperchit:article-detail', kwargs={'pk': self.pk})
