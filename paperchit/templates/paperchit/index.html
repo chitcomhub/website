@@ -4,13 +4,18 @@
 	<nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{% url 'home:index' %}">Главная</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Новости</li>
+            <li class="breadcrumb-item active" aria-current="page">Статьи</li>
         </ol>
     </nav>
 
     <div class="container">
     	<div class="row justify-content-md-center">
     		<div class="col-md-8">
+    			{% if user.is_authenticated %}
+    			<div>
+	              <a class="btn btn-primary btn-sm mt-1 mb-1" href="{% url 'paperchit:article-create' %}">Написать статью</a>
+	            </div>
+	            {% endif %}
     			{% for article in articles %}
 				<div class="card-deck">
 				  <div class="card">
@@ -18,7 +23,7 @@
 				    <a href=""><img class="card-img-top" src="/paperchit{{ article.pic.url }}" alt="Card image cap"></a>
 				    {% endif %}
 				    <div class="card-body">
-				      <h5 class="card-title"><a href="{% url 'paperchit:article_detail' article.id %}">{{ article.title }}</a></h5>
+				      <h5 class="card-title"><a href="{% url 'paperchit:article-detail' article.id %}">{{ article.title }}</a></h5>
 				      <p class="card-text">{{ article.content }}</p>
 				    </div>
 				    <div class="card-footer">
