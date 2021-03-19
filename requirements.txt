@@ -11,7 +11,7 @@ coreschema==0.0.4
 Django==2.1.2
 django-crispy-forms==1.7.2
 django-rest-swagger==2.2.0
-djangorestframework==3.9.0
+djangorestframework==3.11.2
 idna==2.7
 itypes==1.1.0
 Jinja2==2.10
